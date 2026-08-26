@@ -81,6 +81,7 @@
 
             </form>
         </section>
+
     <!-- TRIP SUMMARY -->
      <section class="trip-summary">
 
@@ -89,6 +90,11 @@
         <div>
             <span>Destination:</span>
             <span id="summary-destination">-</span>
+        </div>
+        
+        <div>
+            <span>Duration:</span>
+            <span id="summary-days">-</span>
         </div>
 
         <div>
@@ -107,7 +113,7 @@
      <section class="packing-dashboard">
 
         <h2>My Packing List</h2>
-        <p>The right pack for your plan</p>
+        <p>The right pack for your plan.</p>
 
         <!-- PACKING PROGRESS-->
         <div class="packing-progress">
@@ -129,9 +135,15 @@
                 <div id="footwear-list"></div>
             </div>
 
-            <!-- WEARTHER ESSENTIALS-->
+            <!-- WEATHER ESSENTIALS-->
             <div class="packing-category">
                 <h3>Weather Essentials</h3>
+                <div id="weather-list"></div>
+            </div>
+
+            <!--TRAVEL ESSENTIALS -->
+            <div class="packing category">
+                <h3>Travel Essentials</h3>
                 <div id="travel-list"></div>
             </div>
 
@@ -144,12 +156,30 @@
             <!--ACTIVITY ITEMS-->
             <div class="packing-category">
                 <h3>Activity-list</h3>
-                <div id="activity-list"></div>
+                <div id="activity-items"></div>
             </div>
 
          </div>
 
      </section>
+
+<!-- CUSTOM ITEM-->
+    <section class="custom-item">
+
+        <h2>Add Your Own Item</h2>
+
+        <!--CUSTOM ITEM FORM-->
+        <form id="custom-item-form">
+            <input
+               type="text"
+               id="custome-item-input"
+               placeholder="e.g. Travel pillow">
+
+            <button type="submit">Add Item</button>
+        </form>
+
+    </section>
+    
     </main>
 
 </body>
