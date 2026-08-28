@@ -61,3 +61,19 @@ header p {
     font-weight: 600;
     margin-bottom: 8px;
 }
+
+/* FORM INPUTS */
+.form-group input[type="text"],
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus {
+    border-color: #6c5ce7;
+}
