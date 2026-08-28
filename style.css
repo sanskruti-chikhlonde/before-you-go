@@ -78,6 +78,7 @@ header p {
     border-color: #6c5ce7;
 }
 
+/*weather option*/
 .form-group label:has(input[type="radio"]) {
     display: inline-flex;
     align-items: center;
@@ -90,6 +91,23 @@ header p {
 }
 
 .form-group label:has(input[type="radio"]:checked) {
+    border-color: #6c5ce7;
+    background: #f3f0ff;
+}
+
+/*Activity Option*/
+.form-group label:has(input[type="checkbox"]) {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 8px 8px 0;
+    padding: 9px 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.form-group label:has(input[type="checkbox"]:checked) {
     border-color: #6c5ce7;
     background: #f3f0ff;
 }
