@@ -203,3 +203,23 @@ header p {
     font-weight: 600;
     cursor: pointer;
 }
+
+/* RESET TRIP */
+
+.reset-trip {
+    text-align: center;
+}
+
+.reset-trip button {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: transparent;
+    color: #555;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.reset-trip button:hover {
+    background: #f3f0ff;
+}
