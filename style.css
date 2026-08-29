@@ -8,8 +8,8 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f8f7f4;
-    color: #222;
+    background-color: var(--bg-color);
+    color:var(--text-color);
     line-height: 1.5;
 }
 
@@ -40,9 +40,9 @@ header p {
 }
 
 .trip-planner {
-     background: #ffffff;
+     background: var(--card-color);
     border: 1px solid #e5e1dc;
-    border-radius: 18px;
+    border-radius: 1px solid var(--border-color);
     padding: 30px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
 }
@@ -75,7 +75,7 @@ header p {
 
 .form-group input[type="text"]:focus,
 .form-group input[type="number"]:focus {
-    border-color: #6c5ce7;
+    border-color: var(--accent-color);
 }
 
 /*weather option*/
@@ -91,7 +91,7 @@ header p {
 }
 
 .form-group label:has(input[type="radio"]:checked) {
-    border-color: #6c5ce7;
+    border-color: var(--accent-color);
     background: #f3f0ff;
 }
 
@@ -108,7 +108,7 @@ header p {
 }
 
 .form-group label:has(input[type="checkbox"]:checked) {
-    border-color: #6c5ce7;
+    border-color: var(--accent-color);
     background: #f3f0ff;
 }
 
@@ -117,7 +117,7 @@ header p {
     padding: 12px 22px;
     border: none;
     border-radius: 10px;
-    background: #6c5ce7;
+    background: var(--accent-color);
     color: white;
     font-size: 0.95rem;
     font-weight: 600;
@@ -132,7 +132,7 @@ header p {
 
 .packing-dashboard {
     background: #ffffff;
-    border: 1px solid #e5e1dc;
+    border: 1px solid var(--border-color);
     border-radius: 18px;
     padding: 30px;
 }
@@ -159,7 +159,7 @@ header p {
 .packing-category {
     padding: 18px;
     margin-bottom: 15px;
-    border: 1px solid #e5e1dc;
+    border:  1px solid var(--border-color);
     border-radius: 12px;
 }
 
@@ -172,7 +172,7 @@ header p {
 
 .custom-item {
     background: #ffffff;
-    border: 1px solid #e5e1dc;
+    border:  1px solid var(--border-color);
     border-radius: 18px;
     padding: 25px 30px;
 }
@@ -198,7 +198,7 @@ header p {
     padding: 12px 20px;
     border: none;
     border-radius: 10px;
-    background: #6c5ce7;
+    background: var(--accent-color);
     color: white;
     font-weight: 600;
     cursor: pointer;
@@ -222,4 +222,14 @@ header p {
 
 .reset-trip button:hover {
     background: #f3f0ff;
+}
+
+/* THEME COLORS */
+
+:root {
+    --bg-color: #f8f7f4;
+    --card-color: #ffffff;
+    --text-color: #222;
+    --border-color: #e5e1dc;
+    --accent-color: #6c5ce7;
 }
