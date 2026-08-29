@@ -144,3 +144,14 @@ header p {
 .packing-dashboard > p {
     margin-bottom: 20px;
 }
+
+.packing-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 25px;
+    background: #f8f7f4;
+    border-radius: 10px;
+    font-weight: 600;
+}
