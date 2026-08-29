@@ -111,3 +111,36 @@ header p {
     border-color: #6c5ce7;
     background: #f3f0ff;
 }
+
+/* GENERATE BUTTON */
+.trip-planner button {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 10px;
+    background: #6c5ce7;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.trip-planner button:hover {
+    opacity: 0.9;
+}
+
+/* PACKING DASHBOARD */
+
+.packing-dashboard {
+    background: #ffffff;
+    border: 1px solid #e5e1dc;
+    border-radius: 18px;
+    padding: 30px;
+}
+
+.packing-dashboard h2 {
+    margin-bottom: 5px;
+}
+
+.packing-dashboard > p {
+    margin-bottom: 20px;
+}
