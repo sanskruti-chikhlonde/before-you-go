@@ -244,4 +244,16 @@ header p {
     --accent-color: #8b7cff;
 }
 
-  
+/* THEME TOGGLE */
+
+#theme-toggle {
+    width: 42px;
+    height: 42px;
+    margin-top: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    background: var(--card-color);
+    color: var(--text-color);
+    font-size: 1.1rem;
+    cursor: pointer;
+}
