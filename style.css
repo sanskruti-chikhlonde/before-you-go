@@ -109,7 +109,8 @@ header p {
 
 .form-group label:has(input[type="checkbox"]:checked) {
     border-color: var(--accent-color);
-    background: #f3f0ff;
+    background: var(--soft-bg);
+    color: var(--text-color);
 }
 
 /* GENERATE BUTTON */
@@ -269,11 +270,47 @@ body[data-theme="dark"] .custom-item {
 #theme-toggle {
     width: 42px;
     height: 42px;
-    margin-top: 15px;
+    margin-top: 0;
+    position: absolute;
+    top: 20px;
+    right: 20px;
     border: 1px solid var(--border-color);
     border-radius: 50%;
     background: var(--card-color);
     color: var(--text-color);
     font-size: 1.1rem;
     cursor: pointer;
+}
+
+/* TRIP PLANNER */
+
+.trip-planner {
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 30px;
+}
+
+.trip-planner h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group > label:first-child {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--bg-color);
+    color: var(--text-color);
 }

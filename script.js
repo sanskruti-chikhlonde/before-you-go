@@ -16,3 +16,40 @@ themeToggle.addEventListener("click", function () {
         themeToggle.textContent = "🌙";
     }
 });
+
+/* TRIP SUMMARY */
+
+const summaryDestination = document.getElementById("summary-destination");
+const summaryDays = document.getElementById("summary-days");
+const summaryWeather = document.getElementById("summary-weather");
+const summaryActivities = document.getElementById("summary-activities");
+
+tripForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const destination = destinationInput.value;
+    const days = daysInput.value;
+
+    const weather = document.querySelector(
+        'input[name="weather"]:checked'
+    );
+
+    const activities = document.querySelectorAll(
+        'input[name="activity"]:checked'
+    );
+
+    summaryDestination.textContent = destination;
+    summaryDays.textContent = `${days} days`;
+    summaryWeather.textContent = weather ? weather.value : "-";
+
+    const selectedActivities = [];
+
+    activities.forEach(function (activity) {
+        selectedActivities.push(activity.value);
+    });
+
+    summaryActivities.textContent =
+        selectedActivities.length > 0
+            ? selectedActivities.join(", ")
+            : "-";
+});
