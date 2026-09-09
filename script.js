@@ -53,3 +53,51 @@ tripForm.addEventListener("submit", function (event) {
             ? selectedActivities.join(", ")
             : "-";
 });
+
+/* PACKING LIST */
+
+const outfitsList = document.getElementById("outfits-list");
+const footwearList = document.getElementById("footwear-list");
+const travelList = document.getElementById("travel-list");
+const electronicsList = document.getElementById("electronics-list");
+
+const outfits = [
+    "T-shirts",
+    "Casual outfits",
+    "Sleepwear",
+    "Underwear"
+];
+
+const footwear = [
+    "Comfortable shoes",
+    "Sandals"
+];
+
+const travelEssentials = [
+    "ID / Documents",
+    "Wallet",
+    "Toiletries",
+    "Water bottle"
+];
+
+const electronics = [
+    "Phone charger",
+    "Power bank",
+    "Earphones"
+];
+
+outfitsList.innerHTML = outfits
+    .map(item => `<label><input type="checkbox"> ${item}</label>`)
+    .join("");
+
+footwearList.innerHTML = footwear
+    .map(item => `<label><input type="checkbox"> ${item}</label>`)
+    .join("");
+
+travelList.innerHTML = travelEssentials
+    .map(item => `<label><input type="checkbox"> ${item}</label>`)
+    .join("");
+
+electronicsList.innerHTML = electronics
+    .map(item => `<label><input type="checkbox"> ${item}</label>`)
+    .join("");
