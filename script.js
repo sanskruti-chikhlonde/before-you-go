@@ -1,7 +1,7 @@
 const tripForm = document.getElementById("trip-form");
 const destinationInput = document.getElementById("destination");
 const daysInput = document.getElementById("days");
-
+const activityList = document.getElementById("activity-list");
 
 /* THEME TOGGLE */
 const themeToggle = document.getElementById("theme-toggle");
@@ -26,7 +26,6 @@ const summaryActivities = document.getElementById("summary-activities");
 tripForm.addEventListener("submit", function (event) {
     event.preventDefault();
  
-    /* trip details */
     const destination = destinationInput.value;
     const days = daysInput.value;
 
@@ -59,7 +58,6 @@ const footwearList = document.getElementById("footwear-list");
 const weatherList = document.getElementById("weather-list"); 
 const travelList = document.getElementById("travel-list");
 const electronicsList = document.getElementById("electronics-list");
-const activityList = document.getElementById("activity-list");
 
 const outfits = [
     "T-shirts",
@@ -183,33 +181,38 @@ activityList.innerHTML = activityItems
     .map(item => `<label><input type="checkbox"> ${item}</label>`)
     .join("");
 
-/* packing progress */
-const progressText = document.getElementById("progress-text");
-const progressPercentage = document.getElementById("progress-percentage");
+/* PACKING PROGRESS - CHECKBOX EVENTS */
 
 const checkboxes = document.querySelectorAll("#packing-list input");
 
+checkboxes.forEach(function (checkbox) {
+    checkbox.addEventListener("change", updateProgress);
+});
+
+updateProgress();
+});
+
+/* packing progress */
+const progressText = document.getElementById("progress-text");
+        const progressPercentage = document.getElementById("progress-percentage");
+    
 function updateProgress() {
+    const checkboxes = document.querySelectorAll("#packing-list input");
+    
     const total = checkboxes.length;
     const packed = document.querySelectorAll("#packing-list input:checked").length;
-    const percentage = total ? Math.round((packed / total) *100) : 0;
+    
+    const percentage = total
+        ? Math.round((packed / total) * 100)
+        : 0;
 
     progressText.textContent = `${packed} / ${total} items packed`;
     progressPercentage.textContent = `${percentage} %`;
 }
 
-checkboxes.forEach(function (checkbox) {
-    checkbox.addEventListener("change", updateProgress)
-});
-
-updateProgress();
-
-}); 
-
-
+/* custom item */
 const customItemForm = document.getElementById ("custom-item-form");
 const customItemInput = document.getElementById("custom-item-input");
-const activityList = document.getElementById("activity-list");
 
 customItemForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -217,10 +220,21 @@ customItemForm.addEventListener("submit", function (event) {
     const item = customItemInput.value.trim();
 
     if (item !== "") {
-        activityList.innerHTML +=
-            `<label><input type="checkbox"> ${item}</label>`;
 
-              customItemInput.value = "";
+        const label = document.createElement("label");
+
+        label.innerHTML = `<input type="checkbox"> ${item}`;
+
+        activityList.appendChild(label);
+
+        customItemInput.value = "";
+        
+
+        const newCheckbox = label.querySelector("input");
+
+        newCheckbox.addEventListener("change", updateProgress);
+
+        updateProgress();
     }
     
 });
