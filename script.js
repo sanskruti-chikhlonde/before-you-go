@@ -18,7 +18,6 @@ themeToggle.addEventListener("click", function () {
 });
 
 /* TRIP SUMMARY */
-
 const summaryDestination = document.getElementById("summary-destination");
 const summaryDays = document.getElementById("summary-days");
 const summaryWeather = document.getElementById("summary-weather");
@@ -28,7 +27,6 @@ tripForm.addEventListener("submit", function (event) {
     event.preventDefault();
  
     /* trip details */
-
     const destination = destinationInput.value;
     const days = daysInput.value;
 
@@ -56,7 +54,6 @@ tripForm.addEventListener("submit", function (event) {
             : "-";
 
 /* PACKING LIST */
-
 const outfitsList = document.getElementById("outfits-list");
 const footwearList = document.getElementById("footwear-list");
 const weatherList = document.getElementById("weather-list"); 
@@ -90,7 +87,6 @@ const electronics = [
 ];
 
 /* WEATHER ITEMS */
-
     const weatherItems = [];
 
     if (weather) {
@@ -187,8 +183,7 @@ activityList.innerHTML = activityItems
     .map(item => `<label><input type="checkbox"> ${item}</label>`)
     .join("");
 
-
-
+/* packing progress */
 const progressText = document.getElementById("progress-text");
 const progressPercentage = document.getElementById("progress-percentage");
 
@@ -209,4 +204,23 @@ checkboxes.forEach(function (checkbox) {
 
 updateProgress();
 
+}); 
+
+
+const customItemForm = document.getElementById ("custom-item-form");
+const customItemInput = document.getElementById("custom-item-input");
+const activityList = document.getElementById("activity-list");
+
+customItemForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const item = customItemInput.value.trim();
+
+    if (item !== "") {
+        activityList.innerHTML +=
+            `<label><input type="checkbox"> ${item}</label>`;
+
+              customItemInput.value = "";
+    }
+    
 });
