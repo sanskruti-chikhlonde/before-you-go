@@ -26,6 +26,8 @@ const summaryActivities = document.getElementById("summary-activities");
 
 tripForm.addEventListener("submit", function (event) {
     event.preventDefault();
+ 
+    /* trip details */
 
     const destination = destinationInput.value;
     const days = daysInput.value;
@@ -52,14 +54,15 @@ tripForm.addEventListener("submit", function (event) {
         selectedActivities.length > 0
             ? selectedActivities.join(", ")
             : "-";
-});
 
 /* PACKING LIST */
 
 const outfitsList = document.getElementById("outfits-list");
 const footwearList = document.getElementById("footwear-list");
+const weatherList = document.getElementById("weather-list"); 
 const travelList = document.getElementById("travel-list");
 const electronicsList = document.getElementById("electronics-list");
+const activityList = document.getElementById("activity-list");
 
 const outfits = [
     "T-shirts",
@@ -86,6 +89,82 @@ const electronics = [
     "Earphones"
 ];
 
+/* WEATHER ITEMS */
+
+    const weatherItems = [];
+
+    if (weather) {
+
+        if (weather.value === "sunny") {
+            weatherItems.push("Sunglasses");
+            weatherItems.push("Sunscreen");
+            weatherItems.push("Cap");
+        }
+
+        if (weather.value === "rainy") {
+            weatherItems.push("Umbrella");
+            weatherItems.push("Raincoat");
+        }
+
+        if (weather.value === "cold") {
+            weatherItems.push("Jacket");
+            weatherItems.push("Warm clothes");
+        }
+
+    }
+
+    /* Activity Items */        
+    const activityItems = [];
+
+    selectedActivities.forEach(function (activity) {
+        if (activity === "beach") {
+            activityItems.push("Swimwear");
+            activityItems.push("Beach towel");
+            activityItems.push("Flip-flops");
+        }
+
+        if (activity === "sightseeing") {
+            activityItems.push("comfortable walking shoes");
+            activityItems.push("sunglasses");
+            activityItems.push("camera");
+        }
+
+        if (activity === "party") {
+            activityItems.push("Party outfit");
+        }
+
+        if (activity === "hiking") {
+            activityItems.push("Hiking shoes");
+            activityItems.push("Backpack");
+            activityItems.push("Water bottle");
+        }
+
+        if (activity === "culture") {
+            activityItems.push("Comfortable shoes");
+            activityItems.push("Modest outfit");
+        }
+
+        if (activity === "shopping") {
+            activityItems.push("Extra bag");
+        }
+
+        if (activity === "wellness") {
+            activityItems.push("Comfortable clothes");
+            activityItems.push("Personal care items");
+        }
+
+        if (activity === "adventure") {
+            activityItems.push("Sports shoes");
+            activityItems.push("Small backpack");
+        }
+
+        if (activity === "roadtrip") {
+            activityItems.push("Travel pillow");
+            activityItems.push("Snacks");
+            activityItems.push("Map or GPS device");
+        }
+    });
+
 outfitsList.innerHTML = outfits
     .map(item => `<label><input type="checkbox"> ${item}</label>`)
     .join("");
@@ -101,3 +180,7 @@ travelList.innerHTML = travelEssentials
 electronicsList.innerHTML = electronics
     .map(item => `<label><input type="checkbox"> ${item}</label>`)
     .join("");
+weatherList.innerHTML = weatherItems
+    .map(item => `<label><input type="checkbox"> ${item}</label>`)
+    .join("");
+});
