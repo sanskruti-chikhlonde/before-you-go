@@ -183,4 +183,30 @@ electronicsList.innerHTML = electronics
 weatherList.innerHTML = weatherItems
     .map(item => `<label><input type="checkbox"> ${item}</label>`)
     .join("");
+activityList.innerHTML = activityItems
+    .map(item => `<label><input type="checkbox"> ${item}</label>`)
+    .join("");
+
+
+
+const progressText = document.getElementById("progress-text");
+const progressPercentage = document.getElementById("progress-percentage");
+
+const checkboxes = document.querySelectorAll("#packing-list input");
+
+function updateProgress() {
+    const total = checkboxes.length;
+    const packed = document.querySelectorAll("#packing-list input:checked").length;
+    const percentage = total ? Math.round((packed / total) *100) : 0;
+
+    progressText.textContent = `${packed} / ${total} items packed`;
+    progressPercentage.textContent = `${percentage} %`;
+}
+
+checkboxes.forEach(function (checkbox) {
+    checkbox.addEventListener("change", updateProgress)
+});
+
+updateProgress();
+
 });
