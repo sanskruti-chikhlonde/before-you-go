@@ -1,7 +1,15 @@
 const tripForm = document.getElementById("trip-form");
 const destinationInput = document.getElementById("destination");
 const daysInput = document.getElementById("days");
+
 const activityList = document.getElementById("activity-list");
+const resetTrip = document.getElementById("reset-trip");
+
+const outfitsList = document.getElementById("outfits-list");
+const footwearList = document.getElementById("footwear-list");
+const weatherList = document.getElementById("weather-list"); 
+const travelList = document.getElementById("travel-list");
+const electronicsList = document.getElementById("electronics-list");
 
 /* THEME TOGGLE */
 const themeToggle = document.getElementById("theme-toggle");
@@ -53,11 +61,6 @@ tripForm.addEventListener("submit", function (event) {
             : "-";
 
 /* PACKING LIST */
-const outfitsList = document.getElementById("outfits-list");
-const footwearList = document.getElementById("footwear-list");
-const weatherList = document.getElementById("weather-list"); 
-const travelList = document.getElementById("travel-list");
-const electronicsList = document.getElementById("electronics-list");
 
 const outfits = [
     "T-shirts",
@@ -157,6 +160,24 @@ const electronics = [
             activityItems.push("Snacks");
             activityItems.push("Map or GPS device");
         }
+
+        if (activity === "nightlife") {
+            activityItems.push("Night-out outfit");
+        }
+
+        if (activity === "dining") {
+            activityItems.push("Dinner outfit");
+        }
+
+        if (activity === "business") {
+            activityItems.push("Formal outfit");
+            activityItems.push("Notebook");
+        }
+
+        if (activity === "camping") {
+            activityItems.push("Tent");
+            activityItems.push("Sleeping bag");
+        }
     });
 
 outfitsList.innerHTML = outfits
@@ -182,7 +203,6 @@ activityList.innerHTML = activityItems
     .join("");
 
 /* PACKING PROGRESS - CHECKBOX EVENTS */
-
 const checkboxes = document.querySelectorAll("#packing-list input");
 
 checkboxes.forEach(function (checkbox) {
@@ -228,7 +248,6 @@ customItemForm.addEventListener("submit", function (event) {
         activityList.appendChild(label);
 
         customItemInput.value = "";
-        
 
         const newCheckbox = label.querySelector("input");
 
@@ -237,4 +256,24 @@ customItemForm.addEventListener("submit", function (event) {
         updateProgress();
     }
     
+});
+
+/* reset trip */
+resetTrip.addEventListener("click", function() {
+
+    tripForm.reset();
+
+    summaryDestination.textContent= "-";
+    summaryDays.textContent= "-";
+    summaryWeather.textContent= "-";
+    summaryActivities.textContent= "-";
+
+    outfitsList.innerHTML = "";
+    footwearList.innerHTML = "";
+    travelList.innerHTML = "";
+    electronicsList.innerHTML = "";
+    weatherList.innerHTML = "";
+    activityList.innerHTML = "";
+
+    updateProgress();
 });
