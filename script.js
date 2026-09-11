@@ -215,10 +215,11 @@ updateProgress();
 /* packing progress */
 const progressText = document.getElementById("progress-text");
         const progressPercentage = document.getElementById("progress-percentage");
-    
+        const progressFill = document.getElementById("progress-fill");
+
 function updateProgress() {
     const checkboxes = document.querySelectorAll("#packing-list input");
-    
+
     const total = checkboxes.length;
     const packed = document.querySelectorAll("#packing-list input:checked").length;
     
@@ -228,6 +229,7 @@ function updateProgress() {
 
     progressText.textContent = `${packed} / ${total} items packed`;
     progressPercentage.textContent = `${percentage} %`;
+    progressFill.style.width = `${percentage}%`;
 }
 
 /* custom item */
