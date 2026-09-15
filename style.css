@@ -269,3 +269,22 @@ main {
 .summary-label {
     color: var(--muted);
 }
+
+/* PACKING DASHBOARD */
+
+.packing-dashboard {
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 28px;
+}
+
+.packing-dashboard h2 {
+    margin-bottom: 4px;
+    font-size: 24px;
+}
+
+.packing-subtitle {
+    color: var(--muted);
+    margin-bottom: 24px;
+}
