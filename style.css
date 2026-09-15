@@ -145,13 +145,27 @@ section {
     opacity: 0.85;
 }
 
+/* PACKING CATEGORIES */
+.packing-category {
+    margin-bottom: 18px;
+    padding: 16px;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+}
+
+.packing-category h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
 .packing-category label {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 12px;
-    margin-bottom: 8px;
-    border-radius: 10px;
+    padding: 9px 8px;
+    margin-bottom: 4px;
+    border-radius: 8px;
     cursor: pointer;
 }
 
@@ -246,7 +260,6 @@ main {
 }
 
 /* TRIP SUMMARY */
-
 .trip-summary {
     background: var(--card-color);
     border: 1px solid var(--border-color);
@@ -271,7 +284,6 @@ main {
 }
 
 /* PACKING DASHBOARD */
-
 .packing-dashboard {
     background: var(--card-color);
     border: 1px solid var(--border-color);
@@ -287,4 +299,68 @@ main {
 .packing-subtitle {
     color: var(--muted);
     margin-bottom: 24px;
+}
+
+/* PACKING PROGRESS */
+.packing-progress {
+    padding: 18px;
+    margin-bottom: 24px;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+}
+
+.packing-text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+#progress-percentage {
+    font-weight: 600;
+}
+
+#packing-list {
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+/* CUSTOM ITEM */
+.custom-item {
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 20px;
+}
+
+.custom-item h2 {
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+#custom-item-form {
+    display: flex;
+    gap: 10px;
+}
+
+#custom-item-input {
+    flex: 1;
+    height: 42px;
+    padding: 0 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 9px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    outline: none;
+}
+
+#custom-item-form button {
+    padding: 0 16px;
+    border: none;
+    border-radius: 9px;
+    background: var(--text-color);
+    color: var(--card-color);
+    cursor: pointer;
 }
