@@ -130,6 +130,21 @@ section {
     justify-self: start;
 }
 
+#trip-form > button {
+    padding: 13px 22px;
+    border: none;
+    border-radius: 10px;
+    background: var(--text-color);
+    color: var(--card-color);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#trip-form > button:hover {
+    opacity: 0.85;
+}
+
 .packing-category label {
     display: flex;
     align-items: center;
