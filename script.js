@@ -13,7 +13,6 @@ const electronicsList = document.getElementById("electronics-list");
 
 const tripSummary = document.querySelector(".trip-summary");
 const packingDashboard = document.querySelector(".packing-dashboard");
-const customItem = document.querySelector(".custom-item");
 const resetTripSection = document.querySelector(".reset-trip");
 
 /* THEME TOGGLE */
@@ -42,7 +41,6 @@ tripForm.addEventListener("submit", function (event) {
     /* SHOW OUTPUT SECTIONS */
     tripSummary.style.display = "block";
     packingDashboard.style.display = "block";
-    customItem.style.display = "block";
     resetTripSection.style.display = "block";
 
     const destination = destinationInput.value;
@@ -243,32 +241,36 @@ function updateProgress() {
     progressFill.style.width = `${percentage}%`;
 }
 
-/* custom item */
-const customItemForm = document.getElementById ("custom-item-form");
-const customItemInput = document.getElementById("custom-item-input");
+/* ADD CUSTOM ITEM */
+const addItemButton = document.getElementById("add-item-button");
+const addItemForm = document.getElementById("add-item-form");
+const addItemInput = document.getElementById("add-item-input");
 
-customItemForm.addEventListener("submit", function (event) {
+addItemButton.addEventListener("click", function () {
+    addItemForm.style.display = "flex";
+    addItemInput.focus();
+});
+
+addItemForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const item = customItemInput.value.trim();
+    const item = addItemInput.value.trim();
 
     if (item !== "") {
-
         const label = document.createElement("label");
 
         label.innerHTML = `<input type="checkbox"> ${item}`;
 
         activityList.appendChild(label);
 
-        customItemInput.value = "";
-
         const newCheckbox = label.querySelector("input");
-
         newCheckbox.addEventListener("change", updateProgress);
+
+        addItemInput.value = "";
+        addItemForm.style.display = "none";
 
         updateProgress();
     }
-    
 });
 
 /* reset trip */
@@ -278,7 +280,6 @@ resetTrip.addEventListener("click", function() {
     /* HIDE OUTPUT SECTIONS */
     tripSummary.style.display = "none";
     packingDashboard.style.display = "none";
-    customItem.style.display = "none";
     resetTripSection.style.display = "none";
 
     summaryDestination.textContent= "-";
@@ -292,6 +293,9 @@ resetTrip.addEventListener("click", function() {
     electronicsList.innerHTML = "";
     weatherList.innerHTML = "";
     activityList.innerHTML = "";
+
+    addItemForm.style.display = "none";
+    addItemInput.value = "";
 
     updateProgress();
 });

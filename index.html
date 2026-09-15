@@ -151,8 +151,26 @@
     <!-- PACKING DASHBOARD-->
      <section class="packing-dashboard">
 
+    <!-- PACKING HEADER -->
+    <div class="packing-header">
+    <div>
         <h2>My Packing List</h2>
         <p class="packing-subtitle">The right pack for your plan.</p>
+    </div>
+
+        <button type="button" id="add-item-button">+ Add Item</button>
+    </div>
+
+    <!-- ADD ITEM FORM -->
+
+    <form id="add-item-form">
+        <input
+            type="text"
+            id="add-item-input"
+            placeholder="Enter item name...">
+
+    <button type="submit">Add</button>
+    </form>
 
         <!-- PACKING PROGRESS-->
         <div class="packing-progress">
@@ -208,23 +226,6 @@
 
     </section>
 
-    <!-- CUSTOM ITEM-->
-    <section class="custom-item">
-
-        <h2>Add Your Own Item</h2>
-
-        <!--CUSTOM ITEM FORM-->
-        <form id="custom-item-form">
-            <input
-               type="text"
-               id="custom-item-input"
-               placeholder="e.g. Travel pillow">
-
-            <button type="submit">Add Item</button>
-        </form>
-
-    </section>
-
     <!-- RESET TRIP-->
     <section class="reset-trip">
 
@@ -236,5 +237,5 @@
 
     </main>
     <script src="script.js"></script>
-</html>body>
+</body>
 </html>
