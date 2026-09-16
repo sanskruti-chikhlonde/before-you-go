@@ -311,12 +311,16 @@ main {
 }
 
 #add-item-button {
-    padding: 8px 12px;
+    padding: 8px 13px;
     border: 1px solid var(--border-color);
     border-radius: 9px;
     background: var(--bg-color);
     color: var(--text-color);
     cursor: pointer;
+}
+
+#add-item-button:hover {
+    background: var(--bg-color);
 }
 
 #add-item-form {
@@ -407,4 +411,23 @@ main {
     background: var(--text-color);
     color: var(--card-color);
     cursor: pointer;
+}
+
+/* RESET TRIP */
+.reset-trip {
+    text-align: right;
+}
+
+#reset-trip {
+    padding: 10px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 9px;
+    background: var(--card-color);
+    color: var(--text-color);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#reset-trip:hover {
+    background: var(--bg-color);
 }
