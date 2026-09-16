@@ -431,3 +431,65 @@ main {
 #reset-trip:hover {
     background: var(--bg-color);
 }
+
+/* Tablet and Mobile Responsive */
+@media (max-width: 900px) {
+    main{
+        grid-template-columns: 1fr;
+    }
+
+    #trip-form {
+        grid-template-columns: 1fr 1fr
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 0 16px 40px;
+    }
+
+    header {
+        padding: 40px 16px 30px;
+    }
+
+    header p {
+        font-size: 16px;
+
+    }
+
+    #trip-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+ .trip-planner,
+    .trip-summary,
+    .packing-dashboard {
+        padding: 22px;
+    }
+
+    .packing-header {
+        align-items: center;
+    }
+
+    #add-item-button {
+        padding: 7px 10px;
+        font-size: 13px;
+    }
+
+    #add-item-form {
+        flex-direction: column;
+    }
+
+    #add-item-form button {
+        height: 38px;
+    }
+
+    .summary-row {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    #packing-list {
+        max-height: 360px;
+    }
