@@ -325,25 +325,29 @@ main {
 
 #add-item-form {
     display: none;
-    gap: 8px;
+    gap: 10px;
     margin: 12px 0 18px;
 }
 
 #add-item-input {
     flex: 1;
-    height: 38px;
-    padding: 0 10px;
+    min-width: 0;
+    height: 42px;
+    padding: 0 12px;
     border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border-radius: 9px;
     background: var(--bg-color);
     color: var(--text-color);
     outline: none;
 }
 
 #add-item-form button {
-    padding: 0 13px;
+    width: 60px;
+    height: 42px;
+    margin-left: 6px;
+    padding: 0;
     border: none;
-    border-radius: 8px;
+    border-radius: 9px;
     background: var(--text-color);
     color: var(--card-color);
     cursor: pointer;
@@ -461,35 +465,3 @@ main {
         grid-template-columns: 1fr;
     }
 }
-
- .trip-planner,
-    .trip-summary,
-    .packing-dashboard {
-        padding: 22px;
-    }
-
-    .packing-header {
-        align-items: center;
-    }
-
-    #add-item-button {
-        padding: 7px 10px;
-        font-size: 13px;
-    }
-
-    #add-item-form {
-        flex-direction: column;
-    }
-
-    #add-item-form button {
-        height: 38px;
-    }
-
-    .summary-row {
-        flex-direction: column;
-        gap: 4px;
-    }
-
-    #packing-list {
-        max-height: 360px;
-    }
