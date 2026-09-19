@@ -281,20 +281,34 @@ addItemForm.addEventListener("submit", function (event) {
     const item = addItemInput.value.trim();
 
     if (item !== "") {
+
+    const categoryLists = {
+            outfits: outfitsList,
+            footwear: footwearList,
+            weather: weatherList,
+            travel: travelList,
+            electronics: electronicsList,
+            activity: activityList
+        };
+
+        const existingItems = Array.from(
+            categoryLists[addItemCategory.value].querySelectorAll("label")
+        );
+
+        const alreadyExists = existingItems.some(function (label) {
+        return label.textContent.trim().toLowerCase() === item.toLowerCase();
+        });
+
+        if (alreadyExists) {
+        alert("This item is already on your list.");
+        return;
+        }
+
         const label = document.createElement("label");
 
         label.innerHTML = `<input type="checkbox"> ${item}`;
-        
-        const  categoryLists = {
-        outfits: outfitsList,
-        footwear: footwearList,
-        weather: weatherList,
-        travel: travelList,
-        electronics: electronicsList,
-        activity: activityList
-    };
 
-    categoryLists[addItemCategory.value].appendChild(label);
+        categoryLists[addItemCategory.value].appendChild(label);
 
         const newCheckbox = label.querySelector("input");
         newCheckbox.addEventListener("change", updateProgress);
