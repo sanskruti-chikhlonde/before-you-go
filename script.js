@@ -71,7 +71,8 @@ tripForm.addEventListener("submit", function (event) {
 
     summaryDestination.textContent = destination;
     summaryDays.textContent = `${days} days`;
-    summaryWeather.textContent = weather ? weather.value : "-";
+    summaryWeather.textContent =
+    weather.value.charAt(0).toUpperCase() + weather.value.slice(1);
 
     const selectedActivities = [];
 
@@ -80,9 +81,11 @@ tripForm.addEventListener("submit", function (event) {
     });
 
     summaryActivities.textContent =
-        selectedActivities.length > 0
-            ? selectedActivities.join(", ")
-            : "-";
+    selectedActivities.length > 0
+        ? selectedActivities
+            .map(activity => activity.charAt(0).toUpperCase() + activity.slice(1))
+            .join(", ")
+        : "-";
 
 /* PACKING LIST */
 
