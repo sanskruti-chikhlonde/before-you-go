@@ -263,6 +263,7 @@ function updateProgress() {
 const addItemButton = document.getElementById("add-item-button");
 const addItemForm = document.getElementById("add-item-form");
 const addItemInput = document.getElementById("add-item-input");
+const addItemCategory = document.getElementById("add-item-category");
 
 addItemButton.addEventListener("click", function () {
     addItemForm.style.display = "flex";
@@ -278,8 +279,17 @@ addItemForm.addEventListener("submit", function (event) {
         const label = document.createElement("label");
 
         label.innerHTML = `<input type="checkbox"> ${item}`;
+        
+        const  categoryLists = {
+        outfits: outfitsList,
+        footwear: footwearList,
+        weather: weatherList,
+        travel: travelList,
+        electronics: electronicsList,
+        activity: activityList
+    };
 
-        activityList.appendChild(label);
+    categoryLists[addItemCategory.value].appendChild(label);
 
         const newCheckbox = label.querySelector("input");
         newCheckbox.addEventListener("change", updateProgress);

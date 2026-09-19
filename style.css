@@ -341,6 +341,16 @@ main {
     outline: none;
 }
 
+#add-item-category {
+    height: 42px;
+    padding: 0 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 9px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    outline: none;
+}
+
 #add-item-form button {
     width: 60px;
     height: 42px;

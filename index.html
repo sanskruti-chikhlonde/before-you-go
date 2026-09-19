@@ -161,15 +161,23 @@
         <button type="button" id="add-item-button">+ Add Item</button>
     </div>
 
-    <!-- ADD ITEM FORM -->
+    <!-- ADD-ITEM FORM -->
+    <form id="add-item-form"> 
+    <input 
+        type="text" 
+        id="add-item-input" 
+        placeholder="Enter item name...">
 
-    <form id="add-item-form">
-        <input
-            type="text"
-            id="add-item-input"
-            placeholder="Enter item name...">
+    <select id="add-item-category">
+        <option value="activity">Activity Items</option>
+        <option value="outfits">Outfits</option>
+        <option value="footwear">Footwear</option>
+        <option value="weather">Weather Essentials</option>
+        <option value="travel">Travel Essentials</option>
+        <option value="electronics">Electronics</option>
+    </select>
 
-    <button type="submit">Add</button>
+    <button type="submit">Add</button> 
     </form>
 
         <!-- PACKING PROGRESS-->
