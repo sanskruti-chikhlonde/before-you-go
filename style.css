@@ -475,3 +475,8 @@ main {
         grid-template-columns: 1fr;
     }
 }
+
+.packing-category label:has(input:checked) {
+    text-decoration: line-through;
+    opacity: 0.55;
+}
