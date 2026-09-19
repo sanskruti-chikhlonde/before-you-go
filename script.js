@@ -87,8 +87,8 @@ tripForm.addEventListener("submit", function (event) {
 /* PACKING LIST */
 
 const outfits = [
-    "T-shirts",
-    "Casual outfits",
+    days <= 3 ? "2 T-shirts" : days <= 6 ? "4 T-shirts" : "6 T-shirts",
+    days <= 3 ? "1 Casual outfit" : days <= 6 ? "2 Casual outfits" : "3 Casual outfits",
     "Sleepwear",
     "Underwear"
 ];
