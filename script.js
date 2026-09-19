@@ -87,10 +87,10 @@ tripForm.addEventListener("submit", function (event) {
 /* PACKING LIST */
 
 const outfits = [
-    days <= 3 ? "2 T-shirts" : days <= 6 ? "4 T-shirts" : "6 T-shirts",
-    days <= 3 ? "1 Casual outfit" : days <= 6 ? "2 Casual outfits" : "3 Casual outfits",
-    "Sleepwear",
-    "Underwear"
+    days === 1 ? "1 T-shirt" : days <= 3 ? "2 T-shirts" : days <= 6 ? "4 T-shirts" : "5 T-shirts",
+    days === 1 ? "1 Casual outfit" : days <= 3 ? "1 Casual outfit" : days <= 6 ? "2 Casual outfits" : "3 Casual outfits",
+    days === 1 ? "1 Sleepwear" : days <= 3 ? "2 Sleepwear" : "Sleepwear",
+    days === 1 ? "1 set of underwear" : days <= 3 ? "3 sets of underwear" : "Underwear"
 ];
 
 const footwear = [
@@ -254,7 +254,11 @@ function updateProgress() {
         ? Math.round((packed / total) * 100)
         : 0;
 
-    progressText.textContent = `${packed} / ${total} items packed`;
+    progressText.textContent = 
+    packed === total && total > 0
+        ? "All items packed!"
+        : `${packed} / ${total} ${total === 1 ? "item" : "items"} packed`;
+
     progressPercentage.textContent = `${percentage} %`;
     progressFill.style.width = `${percentage}%`;
 }
