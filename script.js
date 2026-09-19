@@ -271,6 +271,7 @@ const addItemCategory = document.getElementById("add-item-category");
 
 addItemButton.addEventListener("click", function () {
     addItemForm.style.display = "flex";
+    addItemCategory.value = "activity";
     addItemInput.focus();
 });
 
@@ -298,7 +299,7 @@ addItemForm.addEventListener("submit", function (event) {
         const newCheckbox = label.querySelector("input");
         newCheckbox.addEventListener("change", updateProgress);
 
-        addItemInput.value = "";
+        addItemForm.reset();
         addItemForm.style.display = "none";
 
         updateProgress();
@@ -326,8 +327,8 @@ resetTrip.addEventListener("click", function() {
     weatherList.innerHTML = "";
     activityList.innerHTML = "";
 
+    addItemForm.reset();
     addItemForm.style.display = "none";
-    addItemInput.value = "";
 
     updateProgress();
 });
