@@ -37,18 +37,33 @@ const summaryActivities = document.getElementById("summary-activities");
 
 tripForm.addEventListener("submit", function (event) {
     event.preventDefault();
- 
-    /* SHOW OUTPUT SECTIONS */
-    tripSummary.style.display = "block";
-    packingDashboard.style.display = "block";
-    resetTripSection.style.display = "block";
 
-    const destination = destinationInput.value;
-    const days = daysInput.value;
+        const destination = destinationInput.value.trim();
+    const days = Number(daysInput.value);
 
     const weather = document.querySelector(
         'input[name="weather"]:checked'
     );
+
+    if (destination === "") {
+        alert("Please enter your destination.");
+        return;
+    }
+
+    if (!days || days < 1) {
+        alert("Please enter a valid number of days.");
+        return;
+    }
+
+    if (!weather) {
+        alert("Please select the weather.");
+        return;
+    }
+
+    /* SHOW OUTPUT SECTIONS */
+    tripSummary.style.display = "block";
+    packingDashboard.style.display = "block";
+    resetTripSection.style.display = "block";
 
     const activities = document.querySelectorAll(
         'input[name="activity"]:checked'
