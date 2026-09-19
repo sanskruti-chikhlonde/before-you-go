@@ -204,6 +204,9 @@ const electronics = [
         }
     });
 
+const uniqueWeatherItems = [...new Set(weatherItems)];
+const uniqueActivityItems = [...new Set(activityItems)];
+
 outfitsList.innerHTML = outfits
     .map(item => `<label><input type="checkbox"> ${item}</label>`)
     .join("");
@@ -219,10 +222,10 @@ travelList.innerHTML = travelEssentials
 electronicsList.innerHTML = electronics
     .map(item => `<label><input type="checkbox"> ${item}</label>`)
     .join("");
-weatherList.innerHTML = weatherItems
+weatherList.innerHTML = uniqueWeatherItems
     .map(item => `<label><input type="checkbox"> ${item}</label>`)
     .join("");
-activityList.innerHTML = activityItems
+activityList.innerHTML = uniqueActivityItems
     .map(item => `<label><input type="checkbox"> ${item}</label>`)
     .join("");
 
