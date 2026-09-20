@@ -11,6 +11,7 @@ const weatherList = document.getElementById("weather-list");
 const travelList = document.getElementById("travel-list");
 const electronicsList = document.getElementById("electronics-list");
 
+const tripPlanner = document.querySelector(".trip-planner");
 const tripSummary = document.querySelector(".trip-summary");
 const packingDashboard = document.querySelector(".packing-dashboard");
 const resetTripSection = document.querySelector(".reset-trip");
@@ -61,6 +62,7 @@ tripForm.addEventListener("submit", function (event) {
     }
 
     /* SHOW OUTPUT SECTIONS */
+    tripPlanner.style.display = "none";
     tripSummary.style.display = "block";
     packingDashboard.style.display = "block";
     resetTripSection.style.display = "block";
@@ -328,6 +330,7 @@ resetTrip.addEventListener("click", function() {
     tripForm.reset();
 
     /* HIDE OUTPUT SECTIONS */
+    tripPlanner.style.display = "block";
     tripSummary.style.display = "none";
     packingDashboard.style.display = "none";
     resetTripSection.style.display = "none";
