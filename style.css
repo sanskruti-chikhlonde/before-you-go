@@ -239,24 +239,15 @@ main {
     grid-column: 1 / -1;
 }
 
-.custom-item,
-.reset-trip {
-    grid-column: 1 / -1;
-}
-
-.trip-planner h2,
-.trip-summary h2,
-.packing-dashboard h2,
-.custom-item h2 {
-    margin-top: 0;
-}
-
-/* Hide sections */
 .trip-summary,
 .packing-dashboard,
-.custom-item,
 .reset-trip {
     display: none;
+}
+
+.trip-summary h2,
+.packing-dashboard h2 {
+    margin-top: 0;
 }
 
 /* TRIP SUMMARY */
@@ -268,7 +259,7 @@ main {
 }
 
 .trip-summary h2 {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     font-size: 24px;
 }
 
@@ -479,4 +470,9 @@ main {
 .packing-category label:has(input:checked) {
     text-decoration: line-through;
     opacity: 0.55;
+}
+
+/* IMAGE-HIDDEN */
+.trip-image {
+    display: none;
 }
