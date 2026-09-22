@@ -213,25 +213,25 @@ const uniqueWeatherItems = [...new Set(weatherItems)];
 const uniqueActivityItems = [...new Set(activityItems)];
 
 outfitsList.innerHTML = outfits
-    .map(item => `<label><input type="checkbox"> ${item}</label>`)
+    .map(item => `<label><input type="checkbox"> ${item}<button type="button" class="remove-item">×</button></label>`)
     .join("");
 
 footwearList.innerHTML = footwear
-    .map(item => `<label><input type="checkbox"> ${item}</label>`)
+    .map(item => `<label><input type="checkbox"> ${item}<button type="button" class="remove-item">×</button></label>`)
     .join("");
 
 travelList.innerHTML = travelEssentials
-    .map(item => `<label><input type="checkbox"> ${item}</label>`)
+    .map(item => `<label><input type="checkbox"> ${item}<button type="button" class="remove-item">×</button></label>`)
     .join("");
 
 electronicsList.innerHTML = electronics
-    .map(item => `<label><input type="checkbox"> ${item}</label>`)
+    .map(item => `<label><input type="checkbox"> ${item}<button type="button" class="remove-item">×</button></label>`)
     .join("");
 weatherList.innerHTML = uniqueWeatherItems
-    .map(item => `<label><input type="checkbox"> ${item}</label>`)
+    .map(item => `<label><input type="checkbox"> ${item}<button type="button" class="remove-item">×</button></label>`)
     .join("");
 activityList.innerHTML = uniqueActivityItems
-    .map(item => `<label><input type="checkbox"> ${item}</label>`)
+    .map(item => `<label><input type="checkbox"> ${item}<button type="button" class="remove-item">×</button></label>`)
     .join("");
 
 /* PACKING PROGRESS - CHECKBOX EVENTS */
@@ -301,7 +301,10 @@ addItemForm.addEventListener("submit", function (event) {
         );
 
         const alreadyExists = existingItems.some(function (label) {
-        return label.textContent.trim().toLowerCase() === item.toLowerCase();
+        return label.textContent
+             .replace("×", "")
+             .trim()
+             .toLowerCase() === item.toLowerCase();
         });
 
         if (alreadyExists) {
@@ -311,7 +314,7 @@ addItemForm.addEventListener("submit", function (event) {
 
         const label = document.createElement("label");
 
-        label.innerHTML = `<input type="checkbox"> ${item}`;
+        label.innerHTML = `<input type="checkbox"> ${item}<button type="button" class="remove-item">×</button>`;
 
         categoryLists[addItemCategory.value].appendChild(label);
 
@@ -321,6 +324,13 @@ addItemForm.addEventListener("submit", function (event) {
         addItemForm.reset();
         addItemForm.style.display = "none";
 
+        updateProgress();
+    }
+});
+
+document.getElementById("packing-list").addEventListener("click", function (event) {
+    if (event.target.classList.contains("remove-item")) {
+        event.target.closest("label").remove();
         updateProgress();
     }
 });
@@ -352,3 +362,4 @@ resetTrip.addEventListener("click", function() {
 
     updateProgress();
 });
+
