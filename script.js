@@ -238,10 +238,14 @@ activityList.innerHTML = uniqueActivityItems
 const checkboxes = document.querySelectorAll("#packing-list input");
 
 checkboxes.forEach(function (checkbox) {
-    checkbox.addEventListener("change", updateProgress);
+    checkbox.addEventListener("change", function() {
+        updateProgress();
+        saveTripData();
+    });
 });
 
 updateProgress();
+saveTripData();
 });
 
 /* packing progress */
@@ -319,12 +323,16 @@ addItemForm.addEventListener("submit", function (event) {
         categoryLists[addItemCategory.value].appendChild(label);
 
         const newCheckbox = label.querySelector("input");
-        newCheckbox.addEventListener("change", updateProgress);
+        newCheckbox.addEventListener("change", function(){
+             updateProgress();
+             saveTripData();
+        });
 
         addItemForm.reset();
         addItemForm.style.display = "none";
 
         updateProgress();
+        saveTripData();
     }
 });
 
@@ -332,12 +340,15 @@ document.getElementById("packing-list").addEventListener("click", function (even
     if (event.target.classList.contains("remove-item")) {
         event.target.closest("label").remove();
         updateProgress();
+        saveTripData();
     }
 });
 
 /* reset trip */
 resetTrip.addEventListener("click", function() {
     tripForm.reset();
+
+    localStorage.removeItem("tripData");
 
     /* HIDE OUTPUT SECTIONS */
     tripPlanner.style.display = "block";
@@ -363,3 +374,92 @@ resetTrip.addEventListener("click", function() {
     updateProgress();
 });
 
+function saveTripData() {
+    const tripData = {
+        destination: summaryDestination.textContent,
+        days: summaryDays.textContent,
+        weather: summaryActivities.textContent,
+        activities:summaryActivities.textContent,
+        items: []
+    };
+
+    const packingItems = document.querySelectorAll("#packing-list label");
+
+    packingItems.forEach(function (label) {
+        const checkbox = label.querySelector("input");
+
+        const itemName = Array.from(label.childNodes)
+            .filter(node => node.nodeType === Node.TEXT_NODE)
+            .map(node => node.textContent.trim())
+            .join(" ");
+
+        tripData.items.push({
+            name: itemName,
+            category: label.parentElement.id,
+            checked: checkbox.checked
+        });
+    });
+
+    localStorage.setItem("tripData", JSON.stringify(tripData));
+}
+
+/* load saved trip */
+function loadTripData() {
+    const savedData = localStorage.getItem("tripData");
+
+    if (!savedData) {
+        return;
+    }
+
+    const tripData = JSON.parse(savedData);
+
+    tripPlanner.style.display = "none";
+    tripSummary.style.display = "block";
+    packingDashboard.style.display = "block";
+    resetTripSection.style.display = "block";
+
+    summaryDestination.textContent = tripData.destination;
+    summaryDays.textContent = tripData.days;
+    summaryWeather.textContent = tripData.weather;
+    summaryActivities.textContent = tripData.activities;
+
+    outfitsList.innerHTML = "";
+    footwearList.innerHTML = "";
+    weatherList.innerHTML = "";
+    travelList.innerHTML = "";
+    electronicsList.innerHTML = "";
+    activityList.innerHTML = "";
+
+    const categoryLists = {
+        "outfits-list": outfitsList,
+        "footwear-list": footwearList,
+        "weather-list": weatherList,
+        "travel-list": travelList,
+        "electronics-list": electronicsList,
+        "activity-list": activityList
+    };
+
+    tripData.items.forEach(function (item) {
+        const label = document.createElement("label");
+
+        label.innerHTML = `
+            <input type="checkbox">
+            ${item.name}
+            <button type="button" class="remove-item">×</button>
+        `;
+
+        const checkbox = label.querySelector("input");
+        checkbox.checked = item.checked;
+
+        categoryLists[item.category].appendChild(label);
+
+        checkbox.addEventListener("change", function () {
+            updateProgress();
+            saveTripData();
+        });
+    });
+
+    updateProgress();
+}
+
+loadTripData();
