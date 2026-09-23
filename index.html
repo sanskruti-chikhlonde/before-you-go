@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Before-you-go</title>
-
+     
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -36,7 +39,10 @@
             <form id="trip-form">
 
                 <div class="form-group">
-                    <label for="destination">Destination</label>
+                    <label for="destination">
+                       <i class="fa-solid fa-location-dot"> </i>
+                       Destination
+                    </label>
                     <input
                         type="text"
                         id="destination"
@@ -45,7 +51,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="days">Number of Days</label>
+                    <label for="days">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    Number of Days
+                    </label>
                     <input
                         type="number"
                         id="days"
@@ -55,7 +64,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Weather</label>
+                    <label>
+                     <i class="fa-solid fa-cloud-sun"></i>
+                     Weather
+                    </label>
 
                     <label class="weather-option">
                         <input type="radio" name="weather" value="sunny">
@@ -75,7 +87,10 @@
 
                  <!-- ACTIVITIES -->
                 <div class="form-group">
-                    <label>Activities</label>
+                    <label>
+                    <i class="fa-solid fa-compass"></i>
+                    Activities
+                    </label>
 
                     <label class="activity-option">
                         <input type="checkbox" name="activity" value="beach"> Beach & Swimming
@@ -160,7 +175,10 @@
     <!-- PACKING HEADER -->
     <div class="packing-header">
     <div>
-        <h2>My Packing List</h2>
+        <h2>
+        <i class="fa-solid fa-suitcase-rolling"></i>
+        My Packing List
+        </h2>
         <p class="packing-subtitle">The right pack for your plan.</p>
     </div>
 
@@ -202,37 +220,55 @@
          <div id="packing-list">
 
             <div class="packing-category">
-                <h3>Outfits</h3>
+            <h3>
+                <i class="fa-solid fa-shirt"></i>
+                Outfits
+            </h3>
                 <div id="outfits-list"></div>
             </div>
             
             <!-- FOOTWEAR-->
             <div class="packing-category">
-                <h3>Footwear</h3>
+            <h3>
+                <i class="fa-solid fa-shoe-prints"></i>
+                Footwear
+            </h3>
                 <div id="footwear-list"></div>
             </div>
 
             <!-- WEATHER ESSENTIALS-->
             <div class="packing-category">
-                <h3>Weather Essentials</h3>
+            <h3>
+                 <i class="fa-solid fa-cloud-sun"></i>
+                 Weather Essentials
+            </h3>
                 <div id="weather-list"></div>
             </div>
 
             <!--TRAVEL ESSENTIALS -->
             <div class="packing-category">
-                <h3>Travel Essentials</h3>
+            <h3>
+                <i class="fa-solid fa-passport"></i>
+                Travel Essentials
+            </h3>
                 <div id="travel-list"></div>
             </div>
 
             <!-- ELECTRONICS-->
             <div class="packing-category">
-                <h3>Electronics</h3>
+            <h3>
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                Electronic
+            </h3>
                 <div id="electronics-list"></div>
             </div>
 
             <!--ACTIVITY ITEMS-->
             <div class="packing-category">
-                <h3>Activity Items</h3>
+            <h3>
+                <i class="fa-solid fa-person-hiking"></i>
+                Activity Items
+            </h3>
                 <div id="activity-list"></div>
             </div>
 
