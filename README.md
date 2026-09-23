@@ -39,14 +39,15 @@ Before You Go is a simple trip packing assistant that helps users create a packi
 
 ## Project Structure
 
+<pre>
 Before-You-Go/
-│
 ├── index.html
 ├── style.css
 ├── script.js
 ├── assets/
-│ └── BYG-logo.png
+│   └── BYG-logo.png
 └── README.md
+</pre>
 
 ## Live Demo
 
