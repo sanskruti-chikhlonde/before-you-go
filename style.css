@@ -29,10 +29,6 @@ body {
     line-height: 1.5;
 }
 
-section {
-    margin-bottom: 0px;
-}
-
 /* TRIP PLANNER */
 .trip-planner {
     background: var(--card-color);
@@ -59,16 +55,6 @@ section {
 .form-group > label:first-child i {
     color: var(--accent-color);
     font-size: 14px;
-}
-
-.form-group input[type="text"],
-.form-group input[type="number"] {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    background: var(--bg-color);
-    color: var(--text-color);
 }
 
 /* TRIP FORM LAYOUT */
@@ -145,9 +131,6 @@ section {
 
 #trip-form > button {
     justify-self: start;
-}
-
-#trip-form > button {
     padding: 13px 22px;
     border: none;
     border-radius: 10px;
@@ -171,8 +154,6 @@ section {
     border: 1px solid var(--border-color);
     border-radius: 14px;
     min-height: 150px;
-    transition: border-color 0.2s ease,
-                transform 0.2s ease;
 }
 
 .packing-category:hover {

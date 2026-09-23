@@ -378,7 +378,7 @@ function saveTripData() {
     const tripData = {
         destination: summaryDestination.textContent,
         days: summaryDays.textContent,
-        weather: summaryActivities.textContent,
+        weather: summaryWeather.textContent,
         activities:summaryActivities.textContent,
         items: []
     };
