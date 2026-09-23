@@ -1,9 +1,10 @@
 :root {
-    --bg-color: #f5f3ee;
-    --card-color: #ffffff;
-    --text-color: #1f2933;
-    --muted: #6b7280;
-    --border-color: #e5e1d8;
+    --bg-color: #f7f3e8;
+    --card-color: #fffdf8;
+    --text-color: #3d7073;
+    --muted: #667876;
+    --border-color: #ded6c6;
+    --accent-color: #174f52;
 }
 
 body[data-theme="dark"] {
@@ -104,6 +105,10 @@ section {
     font-size: 14px;
 }
 
+.weather-option:hover {
+    border-color: var(--accent-color);
+}
+
 /* ACTIVITIES */
 .activity-option {
     display: inline-flex;
@@ -124,6 +129,15 @@ section {
     border-color: var(--text-color);
 }
 
+.activity-option:hover {
+    border-color: var(--text-color);
+}
+
+.activity-option input[type="checkbox"],
+.weather-option input[type="radio"] {
+    accent-color: var(--accent-color);
+}
+
 #trip-form .form-group:nth-child(4) {
     grid-column: 1 / -1;
 }
@@ -136,7 +150,7 @@ section {
     padding: 13px 22px;
     border: none;
     border-radius: 10px;
-    background: var(--text-color);
+    background: var(--accent-color);
     color: var(--card-color);
     font-size: 15px;
     font-weight: 600;
@@ -156,6 +170,12 @@ section {
     border: 1px solid var(--border-color);
     border-radius: 14px;
     min-height: 150px;
+    transition: border-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+.packing-category:hover {
+    border-color: var(--accent-color);
 }
 
 .packing-category h3 {
@@ -179,6 +199,7 @@ section {
     width: 16px;
     height: 16px;
     cursor: pointer;
+    accent-color: var(--accent-color);
 }
 
 /* progress bar */
@@ -193,7 +214,7 @@ section {
 #progress-fill {
     width: 0;
     height: 100%;
-    background: var(--text-color);
+    background: var(--accent-color);
     border-radius: 20px;
     transition: width 0.3s ease;
 }     
@@ -294,7 +315,7 @@ main {
     margin-bottom: 10px;
     border-radius: 8px;
     background: var(--bg-color);
-    color: var(--muted);
+    color: var(--accent-color);
     font-size: 13px;
     font-weight: 600;
 }
@@ -343,7 +364,8 @@ main {
 
 .packing-dashboard h2 {
     margin-bottom: 3px;
-    font-size: 26px;
+    font-size: 27px;
+    letter-spacing: -0.3px;
 }
 
 .packing-subtitle {
@@ -373,7 +395,7 @@ main {
 }
 
 #add-item-button:hover {
-    border-color: var(--text-color);
+    border-color: var(--accent-color);
      transform: translateY(-1px);
 }
 
@@ -412,6 +434,11 @@ main {
     background: var(--bg-color);
     color: var(--text-color);
     outline: none;
+}
+
+#add-item-category option:checked {
+    background-color: var(--accent-color);
+    color: var(--card-color);
 }
 
 #add-item-form button {
@@ -469,6 +496,8 @@ main {
 }
 
 #reset-trip:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
     background: var(--bg-color);
 }
 
@@ -559,11 +588,6 @@ main {
 
 .remove-item:hover {
     color: var(--text-color);
-}
-
-/* IMAGE-HIDDEN */
-.trip-image {
-    display: none;
 }
 
 body[data-theme="dark"] .site-logo img {
