@@ -255,7 +255,17 @@ function updateProgress() {
     const checkboxes = document.querySelectorAll("#packing-list input");
 
     const total = checkboxes.length;
-    const packed = document.querySelectorAll("#packing-list input:checked").length;
+    
+    let packed = 0;
+    let i = 0;
+
+    while (i < checkboxes.length) {
+        if (checkboxes[i].checked) {
+            packed++;
+        }
+
+        i++;
+    }
     
     const percentage = total
         ? Math.round((packed / total) * 100)
