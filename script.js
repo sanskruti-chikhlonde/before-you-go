@@ -117,97 +117,95 @@ const electronics = [
 ];
 
 /* WEATHER ITEMS */
+
     const weatherItems = [];
 
     if (weather) {
 
-        if (weather.value === "sunny") {
+    switch (weather.value) {
+
+        case "sunny":
             weatherItems.push("Sunglasses");
             weatherItems.push("Sunscreen");
             weatherItems.push("Cap");
-        }
+            break;
 
-        if (weather.value === "rainy") {
+        case "rainy":
             weatherItems.push("Umbrella");
             weatherItems.push("Raincoat");
-        }
+            break;
 
-        if (weather.value === "cold") {
+        case "cold":
             weatherItems.push("Jacket");
             weatherItems.push("Warm clothes");
-        }
+            break;
 
+        default:
+            break;
     }
+} 
 
     /* Activity Items */        
-    const activityItems = [];
+const activityItems = [];
+
+if (selectedActivities.length > 0) {
 
     selectedActivities.forEach(function (activity) {
+
         if (activity === "beach") {
             activityItems.push("Swimwear");
             activityItems.push("Beach towel");
             activityItems.push("Flip-flops");
-        }
 
-        if (activity === "sightseeing") {
+        } else if (activity === "sightseeing") {
             activityItems.push("comfortable walking shoes");
             activityItems.push("sunglasses");
             activityItems.push("camera");
-        }
 
-        if (activity === "party") {
+        } else if (activity === "party") {
             activityItems.push("Party outfit");
-        }
 
-        if (activity === "hiking") {
+        } else if (activity === "hiking") {
             activityItems.push("Hiking shoes");
             activityItems.push("Backpack");
             activityItems.push("Water bottle");
-        }
 
-        if (activity === "culture") {
+        } else if (activity === "culture") {
             activityItems.push("Comfortable shoes");
             activityItems.push("Modest outfit");
-        }
 
-        if (activity === "shopping") {
+        } else if (activity === "shopping") {
             activityItems.push("Extra bag");
-        }
 
-        if (activity === "wellness") {
+        } else if (activity === "wellness") {
             activityItems.push("Comfortable clothes");
             activityItems.push("Personal care items");
-        }
 
-        if (activity === "adventure") {
+        } else if (activity === "adventure") {
             activityItems.push("Sports shoes");
             activityItems.push("Small backpack");
-        }
 
-        if (activity === "roadtrip") {
+        } else if (activity === "roadtrip") {
             activityItems.push("Travel pillow");
             activityItems.push("Snacks");
             activityItems.push("Map or GPS device");
-        }
 
-        if (activity === "nightlife") {
+        } else if (activity === "nightlife") {
             activityItems.push("Night-out outfit");
-        }
 
-        if (activity === "dining") {
+        } else if (activity === "dining") {
             activityItems.push("Dinner outfit");
-        }
 
-        if (activity === "business") {
+        } else if (activity === "business") {
             activityItems.push("Formal outfit");
             activityItems.push("Notebook");
-        }
 
-        if (activity === "camping") {
+        } else if (activity === "camping") {
             activityItems.push("Tent");
             activityItems.push("Sleeping bag");
         }
     });
+}
 
 const uniqueWeatherItems = [...new Set(weatherItems)];
 const uniqueActivityItems = [...new Set(activityItems)];
