@@ -145,7 +145,8 @@ const electronics = [
     }
 } 
 
-    /* Activity Items */        
+/* Activity Items */ 
+        
 const activityItems = [];
 
 if (selectedActivities.length > 0) {
@@ -210,27 +211,26 @@ if (selectedActivities.length > 0) {
 const uniqueWeatherItems = [...new Set(weatherItems)];
 const uniqueActivityItems = [...new Set(activityItems)];
 
-outfitsList.innerHTML = outfits
-    .map(item => `<label><input type="checkbox"> ${item}<button type="button" class="remove-item">×</button></label>`)
-    .join("");
+/* PACKING LIST */
 
-footwearList.innerHTML = footwear
-    .map(item => `<label><input type="checkbox"> ${item}<button type="button" class="remove-item">×</button></label>`)
-    .join("");
+function renderPackingItems(items, list) {
+    list.innerHTML = "";
 
-travelList.innerHTML = travelEssentials
-    .map(item => `<label><input type="checkbox"> ${item}<button type="button" class="remove-item">×</button></label>`)
-    .join("");
+    for (let i = 0; i < items.length; i++) {
+        const label = document.createElement("label");
 
-electronicsList.innerHTML = electronics
-    .map(item => `<label><input type="checkbox"> ${item}<button type="button" class="remove-item">×</button></label>`)
-    .join("");
-weatherList.innerHTML = uniqueWeatherItems
-    .map(item => `<label><input type="checkbox"> ${item}<button type="button" class="remove-item">×</button></label>`)
-    .join("");
-activityList.innerHTML = uniqueActivityItems
-    .map(item => `<label><input type="checkbox"> ${item}<button type="button" class="remove-item">×</button></label>`)
-    .join("");
+        label.innerHTML = `<input type="checkbox"> ${items[i]}<button type="button" class="remove-item">×</button>`;
+
+        list.appendChild(label);
+    }
+}
+
+renderPackingItems(outfits, outfitsList);
+renderPackingItems(footwear, footwearList);
+renderPackingItems(travelEssentials, travelList);
+renderPackingItems(electronics, electronicsList);
+renderPackingItems(uniqueWeatherItems, weatherList);
+renderPackingItems(uniqueActivityItems, activityList);
 
 /* PACKING PROGRESS - CHECKBOX EVENTS */
 const checkboxes = document.querySelectorAll("#packing-list input");
