@@ -151,7 +151,10 @@ const activityItems = [];
 
 if (selectedActivities.length > 0) {
 
-    selectedActivities.forEach(function (activity) {
+    let i = 0;
+
+    do {
+        const activity = selectedActivities[i];
 
         if (activity === "beach") {
             activityItems.push("Swimwear");
@@ -205,7 +208,9 @@ if (selectedActivities.length > 0) {
             activityItems.push("Tent");
             activityItems.push("Sleeping bag");
         }
-    });
+        i++;
+
+    } while (i < selectedActivities.length);
 }
 
 const uniqueWeatherItems = [...new Set(weatherItems)];
@@ -266,7 +271,7 @@ function updateProgress() {
 
         i++;
     }
-    
+
     const percentage = total
         ? Math.round((packed / total) * 100)
         : 0;
