@@ -313,16 +313,41 @@ addItemForm.addEventListener("submit", function (event) {
             activity: activityList
         };
 
-        const existingItems = Array.from(
-            categoryLists[addItemCategory.value].querySelectorAll("label")
-        );
+        const categoryNames = [
+            "outfits",
+            "footwear",
+            "weather",
+            "travel",
+            "electronics",
+            "activity",
+        ];
 
-        const alreadyExists = existingItems.some(function (label) {
-        return label.textContent
-             .replace("×", "")
-             .trim()
-             .toLowerCase() === item.toLowerCase();
-        });
+        let alreadyExists = false;
+
+        for (let i = 0; i < categoryNames.length; i++) {
+            const categoryName = categoryNames[i];
+
+            if (categoryName === addItemCategory.value) {
+                const labels = categoryLists[categoryName].querySelectorAll("label");
+
+                for (let j = 0; j < labels.length; j++) {
+                    
+                    const existingItem = labels[j].textContent
+                .replace("×", "")
+                .trim()
+                .toLowerCase();
+
+            if (existingItem === item.toLowerCase()) {
+                alreadyExists = true;
+                break;
+            }
+        }
+
+        if (alreadyExists) {
+            break;
+        }
+    }
+}
 
         if (alreadyExists) {
         alert("This item is already on your list.");
