@@ -17,6 +17,46 @@ const tripSummary = document.querySelector(".trip-summary");
 const packingDashboard = document.querySelector(".packing-dashboard");
 const resetTripSection = document.querySelector(".reset-trip");
 
+function filterPackingItems(searchTerm) {
+    const categories = document.querySelectorAll(".packing-category");
+
+    categories.forEach(function (category) {
+        const labels = category.querySelectorAll("label");
+
+        labels.forEach(function (label) {
+            label.classList.remove("search-first-match");
+
+            const itemName = label.textContent
+                .replace("×", "")
+                .trim()
+                .toLowerCase();
+
+            label.style.display = itemName.includes(searchTerm)
+                ? "flex"
+                : "none";
+        });
+
+        const firstMatch = Array.from(labels).find(function (label) {
+            const itemName = label.textContent
+                .replace("×", "")
+                .trim()
+                .toLowerCase();
+
+            return searchTerm !== "" && itemName.includes(searchTerm);
+        });
+
+        if (firstMatch) {
+            firstMatch.classList.add("search-first-match");
+        }
+    });
+}
+
+packingSearch.addEventListener("input", function () {
+    const searchTerm = packingSearch.value.trim().toLowerCase();
+
+    filterPackingItems(searchTerm);
+});
+
 /* THEME TOGGLE */
 const themeToggle = document.getElementById("theme-toggle");
 
@@ -230,32 +270,7 @@ function renderPackingItems(items, list) {
         list.appendChild(label);
     }
 }
-
-function filterPackingItems(searchTerm) {
-    const categories = document.querySelectorAll(".packing-category");
-
-    categories.forEach(function (category) {
-        const labels = category.querySelectorAll("label");
-
-        labels.forEach(function (label) {
-            const itemName = label.textContent
-                .replace("×", "")
-                .trim()
-                .toLowerCase();
-
-            label.style.display = itemName.includes(searchTerm)
-                ? "flex"
-                : "none";
-        });
-    });
-}
-
-packingSearch.addEventListener("input", function () {
-    const searchTerm = packingSearch.value.trim().toLowerCase();
-
-    filterPackingItems(searchTerm);
-});
-
+        
 renderPackingItems(outfits, outfitsList);
 renderPackingItems(footwear, footwearList);
 renderPackingItems(travelEssentials, travelList);
@@ -280,9 +295,12 @@ saveTripData();
 });
 
 /* packing progress */
-const progressText = document.getElementById("progress-text");
-        const progressPercentage = document.getElementById("progress-percentage");
-        const progressFill = document.getElementById("progress-fill");
+    const progressText = document.getElementById("progress-text");
+    const progressPercentage = document.getElementById("progress-percentage");
+    const progressFill = document.getElementById("progress-fill");
+    const totalItemsText = document.getElementById("total-items");
+    const packedItemsText = document.getElementById("packed-items");
+    const remainingItemsText = document.getElementById("remaining-items");
 
 function updateProgress() {
     const checkboxes = document.querySelectorAll("#packing-list input");
@@ -311,6 +329,25 @@ function updateProgress() {
 
     progressPercentage.textContent = `${percentage} %`;
     progressFill.style.width = `${percentage}%`;
+
+    updatePackingStats();
+}
+
+function updatePackingStats() {
+    const checkboxes = Array.from(
+        document.querySelectorAll("#packing-list input")
+    );
+
+    const packed = checkboxes.reduce(function (count, checkbox) {
+        return checkbox.checked ? count + 1 : count;
+    }, 0);
+
+    const total = checkboxes.length;
+    const remaining = total - packed;
+
+    totalItemsText.textContent = total;
+    packedItemsText.textContent = packed;
+    remainingItemsText.textContent = remaining;
 }
 
 /* ADD CUSTOM ITEM */
