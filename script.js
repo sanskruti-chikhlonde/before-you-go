@@ -524,10 +524,10 @@ function loadTripData() {
     packingDashboard.style.display = "block";
     resetTripSection.style.display = "block";
 
-    summaryDestination.textContent = tripData.destination;
-    summaryDays.textContent = tripData.days;
-    summaryWeather.textContent = tripData.weather;
-    summaryActivities.textContent = tripData.activities;
+    summaryDestination.textContent = tripData.destination ?? "-";
+    summaryDays.textContent = tripData.days ?? "-";
+    summaryWeather.textContent = tripData.weather ?? "-";
+    summaryActivities.textContent = tripData.activities ?? "-";
 
     outfitsList.innerHTML = "";
     footwearList.innerHTML = "";
