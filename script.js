@@ -436,7 +436,7 @@ addItemForm.addEventListener("submit", function (event) {
 
 document.getElementById("packing-list").addEventListener("click", function (event) {
     if (event.target.classList.contains("remove-item")) {
-        event.target.closest("label").remove();
+        event.target.closest("label")?.remove();
         updateProgress();
         saveTripData();
         filterPackingItems(packingSearch.value.trim().toLowerCase());
@@ -545,19 +545,19 @@ function loadTripData() {
         "activity-list": activityList
     };
 
-    tripData.items.forEach(function (item) {
+    tripData.items.forEach (function ({ name, category, checked }) {
         const label = document.createElement("label");
 
         label.innerHTML = `
             <input type="checkbox">
-            ${item.name}
+            ${name}
             <button type="button" class="remove-item">×</button>
         `;
 
         const checkbox = label.querySelector("input");
-        checkbox.checked = item.checked;
+        checkbox.checked = checked;
 
-        categoryLists[item.category].appendChild(label);
+        categoryLists[category].appendChild(label);
 
         checkbox.addEventListener("change", function () {
             updateProgress();
