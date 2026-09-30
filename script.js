@@ -517,7 +517,14 @@ function loadTripData() {
         return;
     }
 
-    const tripData = JSON.parse(savedData);
+    let tripData;
+
+    try {
+        tripData = JSON.parse(savedData);
+    } catch (error) {
+        console.error("Could not load saved trip data:", error);
+        return;
+    }
 
     tripPlanner.style.display = "none";
     tripSummary.style.display = "block";
