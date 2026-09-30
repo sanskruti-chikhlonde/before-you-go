@@ -447,6 +447,43 @@ main {
     cursor: pointer;
 }
 
+/* SEARCH PACKING ITEMS */
+.packing-tools {
+    display: flex;
+    margin-bottom: 18px;
+}
+
+.packing-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 420px;
+    height: 42px;
+    padding: 0 12px;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+.packing-search i {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+#packing-search {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+#packing-search::placeholder {
+    color: var(--muted);
+}
+
 /* PACKING PROGRESS */
 .packing-progress {
     padding: 16px;

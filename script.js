@@ -10,6 +10,7 @@ const footwearList = document.getElementById("footwear-list");
 const weatherList = document.getElementById("weather-list"); 
 const travelList = document.getElementById("travel-list");
 const electronicsList = document.getElementById("electronics-list");
+const packingSearch = document.getElementById("packing-search");
 
 const tripPlanner = document.querySelector(".trip-planner");
 const tripSummary = document.querySelector(".trip-summary");
@@ -230,12 +231,39 @@ function renderPackingItems(items, list) {
     }
 }
 
+function filterPackingItems(searchTerm) {
+    const categories = document.querySelectorAll(".packing-category");
+
+    categories.forEach(function (category) {
+        const labels = category.querySelectorAll("label");
+
+        labels.forEach(function (label) {
+            const itemName = label.textContent
+                .replace("×", "")
+                .trim()
+                .toLowerCase();
+
+            label.style.display = itemName.includes(searchTerm)
+                ? "flex"
+                : "none";
+        });
+    });
+}
+
+packingSearch.addEventListener("input", function () {
+    const searchTerm = packingSearch.value.trim().toLowerCase();
+
+    filterPackingItems(searchTerm);
+});
+
 renderPackingItems(outfits, outfitsList);
 renderPackingItems(footwear, footwearList);
 renderPackingItems(travelEssentials, travelList);
 renderPackingItems(electronics, electronicsList);
 renderPackingItems(uniqueWeatherItems, weatherList);
 renderPackingItems(uniqueActivityItems, activityList);
+
+packingSearch.value = "";
 
 /* PACKING PROGRESS - CHECKBOX EVENTS */
 const checkboxes = document.querySelectorAll("#packing-list input");
@@ -273,7 +301,7 @@ function updateProgress() {
     }
 
     const percentage = total
-        ? Math.round((packed / total) * 100)
+        ? Math.min(100, Math.max(0, Math.round((packed / total) * 100)))
         : 0;
 
     progressText.textContent = 
@@ -371,6 +399,7 @@ addItemForm.addEventListener("submit", function (event) {
 
         updateProgress();
         saveTripData();
+        filterPackingItems(packingSearch.value.trim().toLowerCase());
     }
 });
 
@@ -379,6 +408,7 @@ document.getElementById("packing-list").addEventListener("click", function (even
         event.target.closest("label").remove();
         updateProgress();
         saveTripData();
+        filterPackingItems(packingSearch.value.trim().toLowerCase());
     }
 });
 
@@ -408,6 +438,7 @@ resetTrip.addEventListener("click", function() {
 
     addItemForm.reset();
     addItemForm.style.display = "none";
+    packingSearch.value = "";
 
     updateProgress();
 });
