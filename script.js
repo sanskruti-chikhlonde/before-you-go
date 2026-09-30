@@ -256,6 +256,9 @@ if (selectedActivities.length > 0) {
 
 const uniqueWeatherItems = [...new Set(weatherItems)];
 const uniqueActivityItems = [...new Set(activityItems)];
+  
+uniqueWeatherItems.sort();
+uniqueActivityItems.sort();
 
 /* PACKING LIST */
 
@@ -378,40 +381,31 @@ addItemForm.addEventListener("submit", function (event) {
             activity: activityList
         };
 
-        const categoryNames = [
-            "outfits",
-            "footwear",
-            "weather",
-            "travel",
-            "electronics",
-            "activity",
-        ];
-
         let alreadyExists = false;
 
-        for (let i = 0; i < categoryNames.length; i++) {
-            const categoryName = categoryNames[i];
+        for (const [categoryName, categoryList] of Object.entries(categoryLists)) {
 
             if (categoryName === addItemCategory.value) {
-                const labels = categoryLists[categoryName].querySelectorAll("label");
 
-                for (let j = 0; j < labels.length; j++) {
-                    
-                    const existingItem = labels[j].textContent
-                .replace("×", "")
-                .trim()
-                .toLowerCase();
+                 const labels = categoryList.querySelectorAll("label");
 
-            if (existingItem === item.toLowerCase()) {
-                alreadyExists = true;
-                break;
-            }
+               
+                for (const label of labels) {
+                    const existingItem = label.textContent
+                        .replace("×", "")
+                        .trim()
+                        .toLowerCase();
+
+                    if (existingItem === item.toLowerCase()) {
+                        alreadyExists = true;
+                        break;
+                    }
+                }
+
+                 if (alreadyExists) {
+                  break;
+                }
         }
-
-        if (alreadyExists) {
-            break;
-        }
-    }
 }
 
         if (alreadyExists) {
