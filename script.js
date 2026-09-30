@@ -460,12 +460,18 @@ resetTrip.addEventListener("click", function() {
     summaryWeather.textContent= "-";
     summaryActivities.textContent= "-";
 
-    outfitsList.innerHTML = "";
-    footwearList.innerHTML = "";
-    travelList.innerHTML = "";
-    electronicsList.innerHTML = "";
-    weatherList.innerHTML = "";
-    activityList.innerHTML = "";
+    const packingLists = {
+    outfits: outfitsList,
+    footwear: footwearList,
+    travel: travelList,
+    electronics: electronicsList,
+    weather: weatherList,
+    activity: activityList
+    };
+
+    Object.values(packingLists).forEach(function (list) {
+    list.innerHTML = "";
+});
 
     addItemForm.reset();
     addItemForm.style.display = "none";
