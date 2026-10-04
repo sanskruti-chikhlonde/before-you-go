@@ -526,7 +526,6 @@ function loadTripData() {
     tripPlanner.style.display = "none";
     tripSummary.style.display = "block";
     packingDashboard.style.display = "block";
-    resetTripSection.style.display = "block";
 
     summaryDestination.textContent = tripData.destination ?? "-";
     summaryDays.textContent = tripData.days ?? "-";
