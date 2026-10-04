@@ -92,8 +92,8 @@ tripForm.addEventListener("submit", function (event) {
         return;
     }
 
-    if (!days || days < 1) {
-        alert("Please enter a valid number of days.");
+    if (!Number.isInteger(days) || days < 1) {
+        alert("Please enter a valid number of whole days.");
         return;
     }
 
