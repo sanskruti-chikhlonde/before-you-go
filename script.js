@@ -15,7 +15,6 @@ const packingSearch = document.getElementById("packing-search");
 const tripPlanner = document.querySelector(".trip-planner");
 const tripSummary = document.querySelector(".trip-summary");
 const packingDashboard = document.querySelector(".packing-dashboard");
-const resetTripSection = document.querySelector(".reset-trip");
 
 function filterPackingItems(searchTerm) {
     const categories = document.querySelectorAll(".packing-category");
@@ -106,7 +105,6 @@ tripForm.addEventListener("submit", function (event) {
     tripPlanner.style.display = "none";
     tripSummary.style.display = "block";
     packingDashboard.style.display = "block";
-    resetTripSection.style.display = "block";
 
     const activities = document.querySelectorAll(
         'input[name="activity"]:checked'
@@ -453,7 +451,6 @@ resetTrip.addEventListener("click", function() {
     tripPlanner.style.display = "block";
     tripSummary.style.display = "none";
     packingDashboard.style.display = "none";
-    resetTripSection.style.display = "none";
 
     summaryDestination.textContent= "-";
     summaryDays.textContent= "-";
