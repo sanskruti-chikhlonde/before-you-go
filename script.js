@@ -135,7 +135,7 @@ tripForm.addEventListener("submit", function (event) {
 const outfits = [
     days === 1 ? "1 T-shirt" : days <= 3 ? "2 T-shirts" : days <= 6 ? "4 T-shirts" : "5 T-shirts",
     days === 1 ? "1 Casual outfit" : days <= 3 ? "1 Casual outfit" : days <= 6 ? "2 Casual outfits" : "3 Casual outfits",
-    days === 1 ? "1 Sleepwear" : days <= 3 ? "2 Sleepwear" : "Sleepwear",
+    `${Math.ceil(days / 2)} Sleepwear`,
     days === 1 ? "1 set of underwear" : days <= 3 ? "3 sets of underwear" : "Underwear"
 ];
 
@@ -552,7 +552,14 @@ function loadTripData() {
         "activity-list": activityList
     };
 
+    const validCategories = Object.keys(categoryLists);
+
     tripData.items.forEach (function ({ name, category, checked }) {
+
+        if (!validCategories.includes(category)) {
+            return;
+        }
+        
         const label = document.createElement("label");
 
         label.innerHTML = `
