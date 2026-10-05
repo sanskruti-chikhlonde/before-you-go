@@ -690,6 +690,24 @@ body[data-theme="dark"] .site-logo img {
         grid-template-columns: 1fr;
     }
 
+    .quick-actions {
+       align-items: flex-start;
+       flex-direction: column;
+    }
+
+    .quick-actions-buttons {
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+       width: 100%;
+       gap: 10px;
+    }
+
+    .quick-actions-buttons button {
+       min-width: 0;
+       width: 100%;
+       justify-content: center;
+    }
+
     .weather-option {
         margin-bottom: 6px;
     }
@@ -752,18 +770,4 @@ body[data-theme="dark"] .site-logo img {
     #reset-trip {
         width: 100%;
     }
-}
-
-.quick-actions {
-    align-items: flex-start;
-    flex-direction: column;
-}
-
-.quick-actions-buttons {
-    width: 100%;
-}
-
-.quick-actions-buttons button {
-    flex: 1;
-    justify-content: center;
 }
